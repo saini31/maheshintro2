@@ -103,7 +103,10 @@
       color: #29fc25 !important; /* Green when scrolled */
       text-shadow: #29fc25;
     }
-
+     .navbar-toggler-icon {
+  background-color: white; /* Default color */
+  transition: background-color 0.3s ease;
+}
     /* Subtle text shadow */
     .navbar-brand,
     .nav-link {
@@ -196,7 +199,7 @@
       .navbar.scrolled .nav-link {
         color: #29fc25 !important; /* Change to blue for mobile view */
       }
-
+       
       /* Change navbar brand color in mobile view */
       .navbar.scrolled .navbar-brand {
         color: #29fc25 !important; /* Change to blue for mobile view */
@@ -207,10 +210,9 @@
         background-color: #29fc25 !important; /* Change to blue when scrolled */
       }
 
-      /* Optional: Change color of hamburger menu icon when menu is open */
-      .navbar.scrolled .navbar-toggler-icon {
-        background-color: #29fc25 !important; /* Green when collapsed */
-      }
+     .navbar-toggler-icon.scrolled {
+  background-color: #29fc25 !important; /* Green color after scrolling */
+}
       .footer .social-icons a {
         font-size: 1.2rem;
         margin: 0 8px;

@@ -50,7 +50,7 @@
     }
     /* Footer Styles */
     .footer {
-      background-color: #343a40;
+      background-color: #0f282b;
       color: #ffffff;
       text-align: center;
       padding: 20px 0;
@@ -212,6 +212,76 @@
         margin: 0 8px;
       }
     }
+    /* Timeline Styles */
+    #journey {
+      background-color: #f8f9fa;
+    }
+
+    .timeline {
+      position: relative;
+      padding: 30px 0;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 30px;
+    }
+
+    .timeline-content {
+      margin-left: 50px;
+      padding: 15px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .timeline h3 {
+      font-size: 1.25rem;
+      color: #581988;
+      margin-bottom: 10px;
+    }
+
+    .timeline p {
+      color: #555;
+      font-size: 1rem;
+    }
+
+    .timeline-item .timeline-content p {
+      font-size: 0.95rem; /* Make text slightly smaller for better spacing */
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      .timeline-item {
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      .timeline-content {
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      /* For smaller screens, stack the timeline items vertically */
+      .timeline {
+        padding: 20px;
+      }
+
+      .timeline-item {
+        margin-bottom: 20px;
+      }
+
+      /* Ensure the content doesn't go full width on small screens */
+      .timeline-content {
+        margin: 10px auto;
+        padding: 20px;
+      }
+
+      .timeline h3 {
+        font-size: 1.1rem;
+      }
+    }
 
     /* Add smooth scrolling effect */
     body {
@@ -281,6 +351,60 @@
             alt="Profile Picture"
             class="img-fluid rounded-circle"
           />
+        </div>
+      </div>
+    </section>
+    <!-- #journey -->
+    <section id="journey" class="py-5">
+      <div class="container">
+        <h2 class="text-center mb-5">My Journey</h2>
+        <div class="timeline">
+          <!-- College -->
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3>Government Engineering College Baran(Raj)</h3>
+              <p>
+                Bachelor's in Computer Science & Engineering, Rajasthan
+                Technical University Kota (2019-2023)
+              </p>
+              <p>
+                Key Achievements: Developed projects in web development and
+                software engineering.
+              </p>
+            </div>
+          </div>
+
+          <!-- Training -->
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3>VGT Software Development & Training Kota</h3>
+              <p>
+                Full-Stack Web Development Training at VGT Institute (Jun 2022 -
+                Oct 2022)
+              </p>
+              <p>
+                Focus Areas: (C programming, PHP), HTML, CSS, JavaScript,
+                Bootstrap.
+              </p>
+              <h3>Coding Shuttle</h3>
+              <p>
+                Focus Areas: Data Structures & Algorithms (Java), OOPS, problem
+                solving. (Jul 2023 - Jan 2024)
+              </p>
+            </div>
+          </div>
+
+          <!-- Company -->
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3>Synilogic Tech Pvt Ltd Kota Rajasthan</h3>
+              <p>Junior Backend Developer (March 2024 - Present)</p>
+              <p>
+                Responsibilities: Developing scalable web applications and
+                leading a team in creating dynamic user interfaces.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -749,4 +749,12 @@
       navbar.classList.remove("scrolled");
     }
   });
+   // Remove loader after page loads
+  window.addEventListener("load", () => {
+    const loader = document.getElementById("loader");
+    loader.style.opacity = "0";
+    setTimeout(() => {
+      loader.style.display = "none";
+    }, 500); // Add a delay for fade-out effect
+  });
 </script>

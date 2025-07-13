@@ -21,8 +21,8 @@
     <!-- Custom CSS -->
   </head>
   <style>
-     /* Loader styles */
-    #loader {
+     /* Welcome greeting styles */
+    #welcome-greeting {
       position: fixed;
       top: 0;
       left: 0;
@@ -33,15 +33,36 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
     }
 
-    .spinner {
-      border: 8px solid #f3f3f3;
-      border-top: 8px solid #3498db; /* Change to a monochrome color */
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      animation: spin 1.5s linear infinite;
+    #welcome-greeting h1 {
+      font-size: 3em;
+      color: #333333;
+      margin-bottom: 20px;
+    }
+
+    #welcome-greeting p {
+      font-size: 1.2em;
+      color: #666666;
+      margin-bottom: 30px;
+    }
+
+    #welcome-greeting button {
+      padding: 10px 20px;
+      font-size: 1em;
+      color: #ffffff;
+      background-color: #3498db;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #welcome-greeting button:hover {
+      background-color: #2980b9;
     }
 
     @keyframes spin {
@@ -375,11 +396,16 @@
       scroll-behavior: smooth;
     }
   </style>
-  <!-- Loader -->
-  <div id="loader">
-    <div class="spinner"></div>
-  </div>
+  
+
   <body>
+
+ <div id="welcome-greeting">
+    <h1>Welcome to Our Website</h1>
+    <p>We are delighted to have you here. Explore our content and enjoy your stay!</p>
+    <button onclick="document.getElementById('welcome-greeting').style.display='none'; document.getElementById('main-content').style.display='block';">Get Started</button>
+  </div>
+    <div id="main-content">
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
       <div class="container">
         <a class="navbar-brand" href="#">Mahesh Saini</a>
@@ -821,12 +847,17 @@
         </div>
       </div>
     </footer>
+      </div>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
 <script>
+    // Show main content immediately
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById('main-content').style.display = 'block';
+    });
   // Detect scroll event and add shadow class to navbar
   window.addEventListener("scroll", function () {
     const navbar = document.querySelector(".navbar");
@@ -837,12 +868,12 @@
       navbar.classList.remove("scrolled");
     }
   });
-   // Remove loader after page loads
-  window.addEventListener("load", () => {
-    const loader = document.getElementById("loader");
-    loader.style.opacity = "0";
-    setTimeout(() => {
-      loader.style.display = "none";
-    }, 500); // Add a delay for fade-out effect
-  });
+  //  // Remove loader after page loads
+  // window.addEventListener("load", () => {
+  //   const loader = document.getElementById("loader");
+  //   loader.style.opacity = "0";
+  //   setTimeout(() => {
+  //     loader.style.display = "none";
+  //   }, 500); // Add a delay for fade-out effect
+  // });
 </script>

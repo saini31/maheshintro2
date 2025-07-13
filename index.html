@@ -22,13 +22,20 @@
   </head>
   <style>
      /* Welcome greeting styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+    }
+
     #welcome-greeting {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: #ffffff;
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
       z-index: 9999;
       display: flex;
       justify-content: center;
@@ -37,32 +44,43 @@
       text-align: center;
       padding: 20px;
       box-sizing: border-box;
+      color: #fff;
     }
 
     #welcome-greeting h1 {
       font-size: 3em;
-      color: #333333;
       margin-bottom: 20px;
+      color: #4cc9f0;
     }
 
     #welcome-greeting p {
       font-size: 1.2em;
-      color: #666666;
       margin-bottom: 30px;
+      color: #f8f9fa;
     }
 
     #welcome-greeting button {
-      padding: 10px 20px;
-      font-size: 1em;
-      color: #ffffff;
-      background-color: #3498db;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      color: #fff;
+      background: linear-gradient(45deg, #4cc9f0, #3a0ca3);
       border: none;
-      border-radius: 5px;
+      border-radius: 50px;
       cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
     }
 
     #welcome-greeting button:hover {
-      background-color: #2980b9;
+      background: linear-gradient(45deg, #3a0ca3, #4cc9f0);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* Main content styles */
+    #main-content {
+      display: none; /* Initially hidden */
+      padding: 20px;
     }
 
     @keyframes spin {
@@ -400,10 +418,10 @@
 
   <body>
 
- <div id="welcome-greeting">
-    <h1>Welcome to Our Website</h1>
-    <p>We are delighted to have you here. Explore our content and enjoy your stay!</p>
-    <button onclick="document.getElementById('welcome-greeting').style.display='none'; document.getElementById('main-content').style.display='block';">Get Started</button>
+<div id="welcome-greeting">
+    <h1>Welcome to My Coding Universe</h1>
+    <p>Hello, I'm a passionate backend developer. Explore my portfolio to see how I turn ideas into efficient, scalable solutions. Let's build something amazing together!</p>
+    <button onclick="document.getElementById('welcome-greeting').style.display='none'; document.getElementById('main-content').style.display='block';">Dive into My Work</button>
   </div>
     <div id="main-content">
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">

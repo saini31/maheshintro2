@@ -22,59 +22,73 @@
   </head>
   <style>
     /* Welcome greeting styles */
-    body {
-      font-family: "Arial", sans-serif;
+
+    :root {
+      --primary: #4facfe;
+      --secondary: #00f2fe;
+      --dark-1: #0f2027;
+      --dark-2: #203a43;
+      --dark-3: #2c5364;
+      --glass: rgba(255, 255, 255, 0.08);
+      --text-light: #e0e0e0;
+      --text-muted: #b5d9ff;
+    }
+    * {
       margin: 0;
       padding: 0;
-      background-color: #f4f4f9;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Inter", "Segoe UI", Arial, sans-serif;
+      background: var(--dark-1);
+      color: var(--text-light);
+      scroll-behavior: smooth;
     }
 
     #welcome-greeting {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, #1a1a2e, #16213e);
-      z-index: 9999;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        var(--dark-1),
+        var(--dark-2),
+        var(--dark-3)
+      );
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
+      z-index: 9999;
       text-align: center;
-      padding: 20px;
-      box-sizing: border-box;
-      color: #fff;
     }
 
     #welcome-greeting h1 {
-      font-size: 3em;
-      margin-bottom: 20px;
-      color: #4cc9f0;
+      font-size: 3rem;
+      color: var(--primary);
+      text-shadow: 0 0 25px rgba(79, 172, 254, 0.6);
     }
 
     #welcome-greeting p {
-      font-size: 1.2em;
-      margin-bottom: 30px;
-      color: #f8f9fa;
+      max-width: 600px;
+      color: var(--text-muted);
+      margin: 20px 0;
     }
 
     #welcome-greeting button {
-      padding: 15px 30px;
-      font-size: 1.2em;
-      color: #fff;
-      background: linear-gradient(45deg, #4cc9f0, #3a0ca3);
-      border: none;
+      padding: 14px 36px;
       border-radius: 50px;
+      border: none;
       cursor: pointer;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease;
+      font-size: 1.1rem;
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      color: #fff;
+      transition: all 0.4s ease;
     }
 
     #welcome-greeting button:hover {
-      background: linear-gradient(45deg, #3a0ca3, #4cc9f0);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-      transform: translateY(-2px);
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 15px 35px rgba(0, 242, 254, 0.4);
     }
 
     /* Main content styles */
@@ -92,49 +106,92 @@
       }
     }
 
-    body {
-      font-family: Arial, sans-serif;
+    /* =========================
+   NAVBAR
+========================= */
+    .navbar {
+      background: transparent;
+      transition: all 0.4s ease;
+      padding: 15px 0;
     }
+
+    .navbar.scrolled {
+      background: rgba(15, 32, 39, 0.95);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    }
+
     .navbar-brand {
-      font-weight: bold;
+      font-weight: 700;
+      color: var(--primary) !important;
     }
+
+    .nav-link {
+      color: var(--text-light) !important;
+      margin: 0 10px;
+      transition: color 0.3s;
+    }
+
+    .nav-link:hover {
+      color: var(--secondary) !important;
+    }
+
+    /* =========================
+   HERO SECTION
+========================= */
     .hero {
-      background: linear-gradient(to right, #6a11cb, #2575fc);
-      color: rgb(255, 255, 255);
-      padding: 100px 0;
+      background: linear-gradient(
+        135deg,
+        var(--dark-1),
+        var(--dark-2),
+        var(--dark-3)
+      );
+      padding: 120px 20px;
       text-align: center;
     }
+
     .hero h1 {
-      font-size: 3rem;
-      font-weight: bold;
+      font-size: 3.3rem;
+      font-weight: 800;
     }
+
     .hero p {
+      margin-top: 15px;
+      color: var(--text-muted);
       font-size: 1.2rem;
-      margin-top: 10px;
     }
-    /* skills */
+
+    /* =========================
+   SKILLS SECTION
+========================= */
     .skills {
-      background: #f8f9fa;
-      padding: 50px 0;
+      background: #101820;
+      padding: 70px 0;
     }
+
     .skills h2 {
       text-align: center;
-      margin-bottom: 30px;
+      color: var(--primary);
+      margin-bottom: 40px;
     }
+
     .skill-logo {
-      height: 48px;
-      width: 48px;
-      transition: transform 0.3s;
+      width: 50px;
+      transition: all 0.3s ease;
+      filter: drop-shadow(0 0 6px rgba(79, 172, 254, 0.4));
     }
 
     .skill-logo:hover {
-      transform: scale(1.1); /* Slight zoom effect on hover */
+      transform: scale(1.2);
     }
     .project-card {
-      transition: transform 0.3s;
+      border-radius: 14px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .project-card:hover {
-      transform: scale(1.05);
+      transform: translateY(-10px);
+      box-shadow: 0 25px 50px rgba(0, 242, 254, 0.25);
     }
     .scrollable-image-container {
       max-height: 200px; /* Restrict height to enable vertical scrolling */
@@ -174,238 +231,142 @@
       border-radius: 10px;
     }
 
-    /* Footer Styles */
-    .footer {
-      background-color: #0f282b;
-      color: #ffffff;
-      text-align: center;
-      padding: 20px 0;
-    }
-
-    .footer p {
-      margin: 0;
-      font-size: 1rem;
-    }
-
-    .footer .social-icons {
-      margin-top: 10px;
-    }
-
-    .footer .social-icons a {
-      color: #ffffff;
-      margin: 0 10px;
-      font-size: 1.5rem;
-      transition: color 0.3s ease;
-    }
-
-    .footer .social-icons a:hover {
-      color: #581988; /* Change to green on hover */
-    }
-    /* Default navbar style */
-    .navbar {
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
-      background-color: transparent; /* Transparent by default */
-      box-shadow: 0 4px 6px rgba(7, 9, 13, 0.1); /* Soft shadow for the navbar */
-    }
-
-    /* Navbar scrolled style */
-    .navbar.scrolled {
-      background-color: white; /* Dark background when scrolled */
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    }
-
-    /* Nav-link default color */
-    .nav-link {
-      color: white !important;
-    }
-
-    /* Change nav-link color when navbar is scrolled */
-    .navbar.scrolled .nav-link {
-      color: #581988 !important; /* Green when scrolled */
-    }
-
-    /* Change navbar brand color when navbar is scrolled */
-    .navbar.scrolled .navbar-brand {
-      color: #581988 !important; /* Green when scrolled */
-      text-shadow: #581988;
-    }
-
-    /* Subtle text shadow */
-    .navbar-brand,
-    .nav-link {
-      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Hover effect */
-    .nav-link:hover {
-      color: #581988 !important; /* Green on hover */
-    }
-    /* Contact Section Styles */
     .contact-section {
-      background-color: #f8f9fa;
-      padding-top: 50px;
-      padding-bottom: 50px;
+      background: #101820;
+      padding: 70px 0;
     }
 
     .contact-section h2 {
-      font-size: 2.5rem;
-      font-weight: bold;
-      color: #343a40;
-    }
-
-    .contact-section p.lead {
-      font-size: 1.2rem;
-      color: #6c757d;
-      margin-bottom: 30px;
-    }
-
-    .contact-info {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .info-item {
-      background-color: #ffffff;
-      padding: 20px;
-      margin: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-      width: 100%;
-      max-width: 300px;
+      color: var(--primary);
       text-align: center;
     }
 
-    .info-item h5 {
-      font-size: 1.3rem;
-      color: #2575fc;
-      margin-top: 10px;
+    .info-item {
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 25px;
+      text-align: center;
+      transition: all 0.4s ease;
     }
 
-    .info-item p {
-      font-size: 1rem;
-      color: #343a40;
+    .info-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(79, 172, 254, 0.3);
     }
 
     .info-item i {
+      color: var(--primary);
       font-size: 2rem;
-      color: #2575fc;
     }
 
-    /* Hover effect on info items */
-    .info-item:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* =========================
+   FOOTER
+========================= */
+    .footer {
+      background: var(--dark-1);
+      padding: 25px 0;
+      text-align: center;
     }
 
-    /* Link Styling */
-    a {
-      color: #2575fc;
-      text-decoration: none;
+    .footer .social-icons a {
+      color: #fff;
+      margin: 0 10px;
+      font-size: 1.4rem;
+      transition: color 0.3s;
     }
 
-    a:hover {
-      color: #581988;
+    .footer .social-icons a:hover {
+      color: var(--secondary);
     }
 
-    /* Responsive Design */
+    /* =========================
+   RESPONSIVE
+========================= */
     @media (max-width: 768px) {
-      .info-item {
-        max-width: 100%;
-        margin-bottom: 15px;
-      }
-    }
-
-    /* Mobile view navbar link color change after scroll */
-    @media (max-width: 768px) {
-      /* Change the color of nav-links in mobile view */
-      .navbar.scrolled .nav-link {
-        color: #581988 !important; /* Change to blue for mobile view */
-      }
-
-      /* Change navbar brand color in mobile view */
-      .navbar.scrolled .navbar-brand {
-        color: #581988 !important; /* Change to blue for mobile view */
-      }
-
-      .navbar.scrolled .navbar-toggler-icon {
-        background-color: #581988; /* White color when scrolled */
-      }
-      /* Optional: Change color of hamburger menu icon when menu is open */
-
-      .footer .social-icons a {
-        font-size: 1.2rem;
-        margin: 0 8px;
+      .hero h1 {
+        font-size: 2.4rem;
       }
     }
     /* Timeline Styles */
+
     #journey {
-      background-color: #f8f9fa;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+    }
+
+    #journey h2 {
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    #journey h2 span {
+      color: #9ad1ff;
     }
 
     .timeline {
       position: relative;
-      padding: 30px 0;
+      padding-left: 30px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: 0;
+      height: 100%;
+      width: 3px;
+      background: linear-gradient(to bottom, #4facfe, #00f2fe);
+      border-radius: 10px;
     }
 
     .timeline-item {
       position: relative;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -2px;
+      top: 10px;
+      width: 16px;
+      height: 16px;
+      background: #00f2fe;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(0, 242, 254, 0.8);
     }
 
     .timeline-content {
-      margin-left: 50px;
-      padding: 15px;
-      background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px 25px;
+      border-radius: 14px;
+      backdrop-filter: blur(10px);
+      transition: all 0.4s ease;
+      border-left: 4px solid #4facfe;
     }
 
-    .timeline h3 {
-      font-size: 1.25rem;
-      color: #581988;
+    .timeline-content:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .timeline-content h3 {
+      color: #4facfe;
+      font-weight: 600;
       margin-bottom: 10px;
     }
 
-    .timeline p {
-      color: #555;
-      font-size: 1rem;
+    .timeline-content p {
+      color: #e0e0e0;
+      font-size: 15px;
+      line-height: 1.6;
     }
 
-    .timeline-item .timeline-content p {
-      font-size: 0.95rem; /* Make text slightly smaller for better spacing */
-    }
-
-    /* Mobile responsiveness */
     @media (max-width: 768px) {
-      .timeline-item {
-        margin-left: 0;
-        margin-right: 0;
-      }
-
-      .timeline-content {
-        margin-left: 0;
-        margin-right: 0;
-      }
-
-      /* For smaller screens, stack the timeline items vertically */
       .timeline {
-        padding: 20px;
-      }
-
-      .timeline-item {
-        margin-bottom: 20px;
-      }
-
-      /* Ensure the content doesn't go full width on small screens */
-      .timeline-content {
-        margin: 10px auto;
-        padding: 20px;
-      }
-
-      .timeline h3 {
-        font-size: 1.1rem;
+        padding-left: 20px;
       }
     }
 
@@ -504,19 +465,29 @@
       <!-- #journey -->
       <section id="journey" class="py-5">
         <div class="container">
-          <h2 class="text-center mb-5">My Journey</h2>
+          <h2 class="text-center mb-5">
+            My Professional Journey
+            <span style="display: block; font-size: 16px; color: #6c757d">
+              From Engineering Student to Production-Ready Software Developer
+            </span>
+          </h2>
+
           <div class="timeline">
-            <!-- College -->
+            <!-- Education -->
             <div class="timeline-item">
               <div class="timeline-content">
-                <h3>Government Engineering College Baran(Raj)</h3>
+                <h3>Government Engineering College, Baran (India)</h3>
                 <p>
-                  Bachelor's in Computer Science & Engineering, Rajasthan
-                  Technical University Kota (2019-2023)
+                  <strong
+                    >Bachelor of Technology – Computer Science &
+                    Engineering</strong
+                  ><br />
+                  Rajasthan Technical University, Kota (2019 – 2023)
                 </p>
                 <p>
-                  Key Achievements: Developed projects in web development and
-                  software engineering.
+                  Built a strong foundation in software engineering, data
+                  structures, databases, and web technologies while delivering
+                  multiple academic and real-world web projects.
                 </p>
               </div>
             </div>
@@ -524,44 +495,58 @@
             <!-- Training -->
             <div class="timeline-item">
               <div class="timeline-content">
-                <h3>VGT Software Development & Training Kota</h3>
+                <h3>Professional Training & Skill Development</h3>
+
                 <p>
-                  Full-Stack Web Development Training at VGT Institute (Jun 2022
-                  - Oct 2022)
+                  <strong>VGT Software Development & Training, Kota</strong
+                  ><br />
+                  Full-Stack Web Development (Jun 2022 – Oct 2022)
                 </p>
                 <p>
-                  Focus Areas: (C programming, PHP), HTML, CSS, JavaScript,
-                  Bootstrap.
+                  Hands-on experience with Core PHP, HTML, CSS, JavaScript,
+                  Bootstrap, and building end-to-end dynamic web applications.
                 </p>
-                <h3>Coding Shuttle</h3>
+
                 <p>
-                  Focus Areas: Data Structures & Algorithms (Java), OOPS,
-                  problem solving. (Jul 2023 - Jan 2024)
+                  <strong>Coding Shuttle</strong><br />
+                  Data Structures & Algorithms in Java (Jul 2023 – Jan 2024)
+                </p>
+                <p>
+                  Strengthened problem-solving skills, OOPS concepts, and
+                  logical thinking required for scalable and optimized backend
+                  systems.
                 </p>
               </div>
             </div>
 
-            <!-- Company -->
+            <!-- Company 1 -->
             <div class="timeline-item">
               <div class="timeline-content">
-                <h3>Synilogic Tech Pvt Ltd Kota Rajasthan</h3>
-                <p>Junior Backend Developer (Feb 2024 - Aug 2025)</p>
+                <h3>Synilogic Tech Pvt. Ltd., Rajasthan</h3>
                 <p>
-                  Responsibilities: Developing scalable web applications and
-                  leading a team in creating dynamic user interfaces.
+                  <strong>Junior Backend Developer</strong> (Feb 2024 – Aug
+                  2025)
+                </p>
+                <p>
+                  Worked on backend development using PHP & Laravel,
+                  collaborated with frontend teams, optimized APIs, and
+                  contributed to real production systems serving business
+                  clients.
                 </p>
               </div>
             </div>
-            <!-- Company -->
+
+            <!-- Company 2 -->
             <div class="timeline-item">
               <div class="timeline-content">
-                <h3>Kriscent Techno Hub Pvt Ltd Kota Rajasthan</h3>
-                <p>Software Developer (Aug 2025 - Present)</p>
+                <h3>Kriscent Techno Hub Pvt. Ltd., Rajasthan</h3>
+                <p><strong>Software Developer</strong> (Aug 2025 – Present)</p>
                 <p>
-                  Developed and maintained Core PHP and Laravel applications,
-                  implementing MVC architecture, APIs, secure payment
-                  integrations, and delivering bug fixes and feature
-                  improvements.
+                  Developing and maintaining enterprise-grade applications using
+                  <strong>Core PHP & Laravel</strong>. Specialized in MVC
+                  architecture, REST APIs, secure payment gateway integrations,
+                  bug fixing, feature enhancements, and performance optimization
+                  for scalable systems.
                 </p>
               </div>
             </div>
